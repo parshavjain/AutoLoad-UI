@@ -1,0 +1,7 @@
+<a [routerLink]="['/']">
+  <h1>AutoLoad</h1>
+</a>
+<ul class="navbar-nav">
+    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="button fancy-button"><i class="material-icons">vpn_key</i>&nbsp;Sign In</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="button fancy-button"><i class="material-icons">exit_to_app</i>&nbsp;Sign Out</a></li>
+</ul>

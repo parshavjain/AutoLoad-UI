@@ -1,0 +1,20 @@
+<p>user works!</p>
+<div class="col-md-6">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>IsAdmin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.username}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.isAdmin}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
