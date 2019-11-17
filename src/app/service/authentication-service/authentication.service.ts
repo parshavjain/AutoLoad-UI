@@ -19,9 +19,9 @@ export class AuthenticationService {
     constructor(private httpClient: HttpClient) {
     }
     authenticate(username, password) {
-        console.log("username: " + username);
-        console.log("password: " + password);
-        return this.httpClient.post<any>('http://localhost:8080/login', { username, password }).pipe(
+        //console.log("username: " + username);
+        //console.log("password: " + password);
+        return this.httpClient.post<any>('http://localhost:8082/login', { username, password }).pipe(
             map(
                 userData => {
                     sessionStorage.setItem('username', username);
@@ -34,12 +34,18 @@ export class AuthenticationService {
         );
     }
 
+    /**
+     * Method to check if user is loggedIn.
+     */
     isUserLoggedIn() {
         let user = sessionStorage.getItem('username')
-        console.log(!(user === null))
+        ///console.log(!(user === null))
         return !(user === null)
     }
     
+    /**
+     * Logout user
+     */
     logOut() {
         sessionStorage.removeItem('username')
     }

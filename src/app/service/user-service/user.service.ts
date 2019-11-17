@@ -12,7 +12,7 @@ export class User {
 @Injectable({
   providedIn: 'root'
 })
-export class HttpClientService {
+export class UserService {
 
   constructor(
     private httpClient: HttpClient
@@ -20,10 +20,10 @@ export class HttpClientService {
   }
 
   getAllUsers() {
-    return this.httpClient.get<User[]>('http://localhost:8080/api/user');
+    return this.httpClient.get<User[]>('http://localhost:8082/api/user');
   }
 
   public getUser(user) {
-    return this.httpClient.delete<User>("http://localhost:8080/api/user" + "/" + user.username);
+    return this.httpClient.delete<User>("http://localhost:8082/api/user" + "/" + user.username);
   }
 }

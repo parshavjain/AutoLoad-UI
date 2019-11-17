@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientService, User } from '../service/user-service/user.service'
+import { UserService, User } from '../service/user-service/user.service'
 
 @Component({
   selector: 'app-user',
@@ -10,10 +10,10 @@ export class UserComponent implements OnInit {
 
   users: User[];
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.httpClientService.getAllUsers().subscribe(
+    this.userService.getAllUsers().subscribe(
       response => this.handleSuccessfulResponse(response),
     );
   }
@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
   }
 
   getUser(user: User): void {
-    this.httpClientService.getUser(user)
+    this.userService.getUser(user)
       .subscribe( data => {
        this.users = this.users.filter(u => u !== user);
     })
